@@ -1,0 +1,3 @@
+# Exclude compiled executable files
+*.exe
+*.vscode
