@@ -8,7 +8,7 @@ int  isPrime(int n){
     if(n==2){
         return 1;
     }
-    for(int i =2; i<=sqrt(n); i++){ // brute force approach 
+    for(int i =2; i<=sqrt(n); i++){ // brute force approach - taking n 
         if(n%i ==0){
             return 0;
         }
