@@ -10,19 +10,15 @@ int main(){
     for(int i=0; i<n;i++){
         cin>> arr[i];
     }
+    // precompute 
+    int hash[13] = {0};
+    for(int i = 0; i<n; i++){
+        hash[arr[i]] +=1;
+    }
     cout<<"What number do you want to find the frequency of? ";
     int x;
     cin>> x;
-    int count = 0;
 
-    for(int i=0; i<n; i++){
-        if(arr[i] ==x){
-            count++;
-        }
-    }
-    cout<<"The frequency of "<<x<<" is: "<<count<<endl;
-
-
+    cout<< hash[x]<< endl;
+    
 }
-//time complexity is o(n) and space complexity is o(1)
-// so this  is  a brute force approach and it takes a lot of time 
