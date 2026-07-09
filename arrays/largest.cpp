@@ -1,3 +1,5 @@
+// this is the best approach with time complexity o(n);
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -23,3 +25,5 @@ cout<< max;
   
     
 }
+
+// the brute force approach is to sort the array then print the nth element its time complexity is O(nlogn)
