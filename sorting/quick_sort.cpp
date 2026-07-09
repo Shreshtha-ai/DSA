@@ -9,10 +9,10 @@ int partition(vector<int> &arr, int low, int high){
     int j = high;
 
     while(i<j){
-        while(arr[i] <= pivot && i<=high-1 ){
+        while(arr[i] <= pivot && i<=high-1 ){ // if we have to do in descending order arr[i]>= pivot
             i++;
         }
-        while(arr[j]> pivot && j>=low+1 ){
+        while(arr[j]> pivot && j>=low+1 ){ // if we have to do in descending order arr[i]< pivot 
             j--;
         }
         if(i<j) swap(arr[i], arr[j]);
@@ -45,7 +45,7 @@ int main() {
 }
          quicksort(arr, 0, n-1);
     for (int x : arr){
-        cout << x << " ";
+        cout << x << " "; 
     }
 
 }
