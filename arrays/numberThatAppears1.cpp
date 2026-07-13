@@ -36,6 +36,19 @@ int singleElementbyHash(vector<int>& arr){ // time complexity = o(n) space compl
     return -1;
 
 }
+
+int singleElementbyxor(vector<int>& arr){ // time complexity = O(n) space complexity is O(1)
+    int n = arr.size();
+    int xorr =0;
+
+    for(int i =0;i<n;i++){
+        xorr = xorr^arr[i];
+
+    }
+    return xorr;
+
+
+}
 int main(){
     int n ;
     cout << "Enter the size of the array";
@@ -46,5 +59,6 @@ int main(){
         cin >> arr1[i];
     }; 
     cout<< singleElement(arr1)<<endl;
-    cout << singleElementbyHash(arr1);
+    cout << singleElementbyHash(arr1)<<endl;
+    cout<< singleElementbyxor(arr1)<<endl;
 }
