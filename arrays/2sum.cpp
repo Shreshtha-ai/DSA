@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> twoSum(vector<int>& nums, int target) {
+vector<int> twoSum(vector<int>& nums, int target) { // time complexity = O(n^2)
 
     int n = nums.size();
     for(int i =0; i<n;i++){
@@ -15,7 +15,21 @@ vector<int> twoSum(vector<int>& nums, int target) {
         
     }
 
-int main(){
+
+vector<int> twoSumbyHash(vector<int>& nums, int target){ //time complexity = O(N*logN) space complexity = O(n)
+    int n = nums.size();
+    map<int,int> mp;
+    for(int i =0; i<n; i++){
+        int a = nums[i];
+        int b = target -a;
+        if(mp.find(b)!=mp.end()){
+            return{mp[b],i};
+        }
+        mp[a] =i;
+    }
+    return {-1,-1};
+}
+    int main(){
     int n, sum;
     cout << "Enter the size of the array";
     cin>> n;
@@ -28,7 +42,7 @@ int main(){
         cin >> arr1[i];
 
     }; 
-    vector<int> ans = twoSum(arr1, sum);
+    vector<int> ans = twoSumbyHash(arr1, sum);
 
 
     for (int x : ans) {
