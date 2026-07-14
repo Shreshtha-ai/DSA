@@ -45,6 +45,27 @@ int subarrayByhash(vector<int> &nums, long long k){  // time complexity is O(Nlo
     }
     return maxLen;
 }
+
+int subarrayBydoublepointer(vector<int> &nums, long long k){ // time complexity is 0(2N) space complexity is O(1)
+    int left = 0; int right =0;
+    long long sum = nums[0];
+    int maxLen = 0;
+    int n = nums.size();
+    while(right<n){
+        while(left <=right && sum>k){
+            sum -= nums[left];
+            left++;
+
+        }
+        if(sum ==k){
+            maxLen =  max(maxLen, right=left+1);     
+        }
+        right++;
+        if(right<n) sum += nums[right];
+
+    }
+
+}  
 int main(){
     int n ;
     long long s;
@@ -60,6 +81,7 @@ int main(){
     }; 
     cout<<  subarray(arr1, s)<< endl;
     cout << subarrayByhash(arr1, s);
+    cout << subarrayBydoublepointer(arr1,s);
 }
 
 // sum = current balance.
