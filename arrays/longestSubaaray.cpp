@@ -18,7 +18,7 @@ int subarray(vector<int> &nums, int s){ //time complexity = O(n^3)
     return maxlength;
 }
 
-int subarrayByhash(vector<int> &nums, long long k){ 
+int subarrayByhash(vector<int> &nums, long long k){  // time complexity is O(NlogN) space complexity is O(N)
     
     map<long long, int> preSumMap;
     long long sum = 0;
