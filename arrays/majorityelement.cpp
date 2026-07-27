@@ -23,8 +23,8 @@ int majorityElement(vector<int>& nums){
         return -1; 
     }
 
-int majorityElementsHash(vector<int>& nums){
-    map<int,int>mp;
+int majorityElementsHash(vector<int>& nums){  
+    map<int,int>mp; // TC = O(NlogN) SC = O(N)
     for(int i =0; i<nums.size(); i++){
         mp[nums[i]]++ ;
 
