@@ -23,7 +23,20 @@ int majorityElement(vector<int>& nums){
         return -1; 
     }
 
+int majorityElementsHash(vector<int>& nums){
+    map<int,int>mp;
+    for(int i =0; i<nums.size(); i++){
+        mp[nums[i]]++ ;
 
+
+    }
+    for(auto it:mp){
+        if(it.second>(nums.size()/2)){
+            return it.first;
+        }
+    }
+    return -1;
+}
 
 int main(){
         int n;
@@ -34,7 +47,7 @@ int main(){
     for(int i=0; i<n; i++){
         cin >> arr[i];
 }
-int a = majorityElement(arr);
+int a = majorityElementsHash(arr);
 cout << a;
     
 
