@@ -38,7 +38,7 @@ int majorityElementsHash(vector<int>& nums){
     return -1;
 }
 
-int majorityElementbyMVA(vector<int>& nums){  //TC = O(N)+ O(N) SC = O(1)
+int majorityElementbyMVA(vector<int>& nums){  //TC = O(N)+ O(N) SC = O(1) using moore voting algorithm 
     int cnt =0;
     int el;
     for(int i = 0; i<nums.size();i++){
