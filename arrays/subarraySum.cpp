@@ -56,6 +56,41 @@ using namespace std;
        return maxi;
 
     }
+    
+    int printmaxSubArray(vector<int>&nums){
+        int maxi = INT_MIN;
+        int sum =0;
+        // starting index of current subarray
+        int start = 0; 
+        int ansStart = -1, ansEnd = -1; 
+        for (int i = 0; i < nums.size(); i++) {
+            if (sum == 0) {
+                start = i;
+            }
+            sum += nums[i];
+            if (sum > maxi) {
+                maxi = sum;
+                ansStart = start;
+                ansEnd = i;
+            }
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+        cout << "The subarray is: [";
+        for (int i = ansStart; i <= ansEnd; i++) {
+            cout << nums[i] << " ";
+        }
+        cout << "]" << endl;
+        
+        // Return the maximum subarray sum found
+        return maxi;
+    }
+ 
+
+
+
+    
     int main(){
         int n;
     cout << "Enter the size of array: ";
@@ -65,7 +100,7 @@ using namespace std;
     for(int i=0; i<n; i++){
         cin >> arr[i];
 }
-int a = maxSubArray3(arr);
+int a = printmaxSubArray(arr);
 cout << a;
     
 
