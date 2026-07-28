@@ -20,7 +20,7 @@ using namespace std;
         
     }
 
-    int maxSubArray2(vector<int>& nums) { // TC = O(N^3) SC = O(1)
+    int maxSubArray2(vector<int>& nums) { // TC = O(N^2) SC = O(1)
         int maxi = INT_MIN;
 
         for(int i =0; i<nums.size(); i++){ 
@@ -38,6 +38,24 @@ using namespace std;
         
     }
 
+
+    int maxSubArray3(vector<int>& nums){ // optimal approach by using kadanes algorithm TC = O(N) SC = O(1)
+       int maxi = INT_MIN;
+       int sum =0;
+       for(int i =0; i<nums.size();i++){
+        sum += nums[i]; 
+        if (sum > maxi) {
+                maxi = sum; 
+            }
+            if (sum < 0) {
+                sum = 0; 
+            }
+
+
+       }
+       return maxi;
+
+    }
     int main(){
         int n;
     cout << "Enter the size of array: ";
@@ -47,7 +65,7 @@ using namespace std;
     for(int i=0; i<n; i++){
         cin >> arr[i];
 }
-int a = maxSubArray2(arr);
+int a = maxSubArray3(arr);
 cout << a;
     
 
