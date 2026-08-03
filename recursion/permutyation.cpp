@@ -26,6 +26,21 @@ vector<vector<int>> permute(vector<int>& nums){
     return ans;
 }
 
+vector<vector<int>> permute1(vector<int>&nums , int index){
+    vector<vector<int>> ans;
+    if(index == nums.size()){
+        ans.push_back(nums); // answer is found ds ia a vector of size n
+        return ans;
+    }
+    for(int i = index; i<nums.size(); i++){
+        swap(nums[index], nums[i]); // swap the current element with the index element
+        vector<vector<int>> temp = permute1(nums, index+1); // recursive call
+        ans.insert(ans.end(), temp.begin(), temp.end()); // add the temporary answer to the final answer
+        swap(nums[index], nums[i]); // backtrack
+    }
+    return ans;
+}
+
 int main(){
     vector<int> nums;
     cout<<"Enter the size of the array: ";
@@ -37,7 +52,7 @@ int main(){
         cin>>x;
         nums.push_back(x);
     }
-    vector<vector<int>> result = permute(nums);
+    vector<vector<int>> result = permute1(nums,0);
     for(const auto& perm : result){
         for(int num : perm){
             cout<<num<<" ";
