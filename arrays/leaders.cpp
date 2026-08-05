@@ -18,6 +18,22 @@ vector<int> leaders(vector<int>& nums){ //TC = O(N^2) SC = O(N)
     }
     return ans;
 }
+ 
+vector<int> leadersOptimized(vector<int>& nums){ //TC = O(N) SC = O(N)
+    vector<int> ans;
+    if(nums.empty()){
+        return ans;
+    }
+    int maxi = INT_MIN;
+    for(int i = nums.size()-1; i>=0; i--){
+        if(nums[i]>maxi){
+            ans.push_back(nums[i]);
+            maxi = nums[i];
+        }
+    }
+    reverse(ans.begin(), ans.end());
+    return ans;
+}
 
 int main(){
     int n;
