@@ -27,7 +27,7 @@ int main()
         }
     }
 
-    cout << "Array after removing duplicates:\n";
+    cout << "Array after removing duplicate:\n";
     for(i = 0; i < n; i++)
         cout << a[i] << " ";
 
