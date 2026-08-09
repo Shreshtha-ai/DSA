@@ -55,12 +55,43 @@ int main(){
                     a[pos] = value;
                     n++;
                 }
-                case 6:
-                cout << "Exiting program...\n";
+            case 4:
+                int delPos;
+                cout << "Enter the position to delete (0 to " << n - 1 << "): ";
+                cin >> delPos;
+
+                if(delPos < 0 || delPos >= n){
+                    cout << "Invalid position.\n";
+                } else {
+                    for (int i = delPos; i < n - 1; i++){
+                        a[i] = a[i + 1];
+                    }
+                    n--;
+                }
+                break;
+            case 5:
+                int searchValue;
+                cout << "Enter the value to search: ";
+                cin >> searchValue;
+
+                bool found = false;
+                for (int i = 0; i < n; i++){
+                    if (a[i] == searchValue){
+                        cout << "Value found at position: " << i << endl;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found){
+                    cout << "Value not found\n";
+                }
+                break;
+            case 6:
+                cout << "Exiting program\n";
                 break;
 
             default:
-                cout << "Invalid choice.\n";
+                cout << "Invalid choice\n";
         }
     }
 
