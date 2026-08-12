@@ -11,7 +11,7 @@ bool linearsearch(vector<int> &nums, int target){ //TC = O(n)
 }
 
 
-int longest_seq(vector<int> &nums){ //TC = O(n^2) //SC = O(1)
+int longest_seq(vector<int> &nums){ //TC = O(n^2) //SC = O(1) 
     if(nums.size() ==0){
         return 0;
     }
@@ -33,6 +33,33 @@ int longest_seq(vector<int> &nums){ //TC = O(n^2) //SC = O(1)
      
 }
 
+
+int longestConsecutive(vector<int>& nums){ //TC = O(nlogn) because of sorting //SC = O(1) 
+    int n = nums.size();
+    if(n==0) return 0;
+
+    sort(nums.begin(),nums.end());
+
+    int lastSmalll = INT_MIN;
+    int cnt =0;
+    int longest =1;
+
+    for(int i=0;i<n;i++){
+        if(nums[i] == lastSmalll){
+            continue;
+        }
+        else if(nums[i] == lastSmalll +1){
+            cnt++;
+        }
+        else{
+            cnt =1;
+        }
+        longest = max(longest,cnt);
+        lastSmalll = nums[i];
+    }
+
+    return longest;
+}
 int main(){
     int n;
     cout<< "Enter the number of elements of array: ";
@@ -42,6 +69,6 @@ int main(){
     for(int i=0; i<n; i++){
         cin>>nums[i];
     }
-    int ans = longest_seq(nums);
+    int ans = longestConsecutive(nums);
     cout<< "Length of longest consecutive sequence is: "<<ans;
 }
