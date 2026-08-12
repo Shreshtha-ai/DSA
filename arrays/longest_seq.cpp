@@ -60,6 +60,35 @@ int longestConsecutive(vector<int>& nums){ //TC = O(nlogn) because of sorting //
 
     return longest;
 }
+
+int optimalLongestConsecutive(vector<int> &nums){ //TC = O(N) ON AVERAGE CASE //SC = O(N) because of unordered_set
+    unordered_set<int>s; //because of unordered_set we can search in O(1) time complexity 
+    int n = nums.size();
+
+    if(n==0) return 0;
+
+    int longest =1;
+    for(int i=0;i<n;i++){
+        s.insert(nums[i]);
+
+    }
+    for(auto it:s){
+        if(s.find(it-1) ==s.end()){
+            int cnt =1;
+            int x =it;
+            while (s.find(x + 1) != s.end()) {
+                
+                cnt++;
+                x++;
+            }
+            longest = max(longest, cnt);
+
+
+        }
+
+    }
+    return longest;
+}
 int main(){
     int n;
     cout<< "Enter the number of elements of array: ";
@@ -69,6 +98,6 @@ int main(){
     for(int i=0; i<n; i++){
         cin>>nums[i];
     }
-    int ans = longestConsecutive(nums);
+    int ans = optimalLongestConsecutive(nums);
     cout<< "Length of longest consecutive sequence is: "<<ans;
 }
