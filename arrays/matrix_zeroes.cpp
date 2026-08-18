@@ -52,6 +52,7 @@ void setZeroesbetter(vector<vector<int>>& matrix){ //TC=(M*N)
             }
         }
 
+
         // Second pass: set cells to zero based on markers
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -62,6 +63,30 @@ void setZeroesbetter(vector<vector<int>>& matrix){ //TC=(M*N)
             }
         }
     }
+
+void setzeroesoptimal(vector<vector<int>>& matrix){
+    int colo =1;
+    int m = matrix.size();
+    int n = matrix[0].size();
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(matrix[i][j]==0){ // setting the  zeroes in first row and first column making it as a marker for the rest of the matrix
+                matrix[i][0]=0;
+                if(j!=0){
+                    matrix[0][j]=0;
+                }else{
+                    colo=0;
+                }
+            }
+        }
+    }
+
+
+    
+
+
+
+}
 
 
 
