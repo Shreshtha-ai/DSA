@@ -42,7 +42,7 @@ int subarraySumBetter( vector<int>& nums, int k){ //TC O(n^2) SC O(1)
     return cnt;
 }
 
-int subarraySumOptimal(vector<int>& nums, int k){
+int subarraySumOptimal(vector<int>& nums, int k){ //TC =O(N) SC = O(N)
     int n = nums.size();
     int cnt =0;
     unordered_map<int,int> mp; // to store the prefix sum and its frequency
