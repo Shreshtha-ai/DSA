@@ -68,25 +68,58 @@ void setzeroesoptimal(vector<vector<int>>& matrix){
     int colo =1;
     int m = matrix.size();
     int n = matrix[0].size();
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            if(matrix[i][j]==0){ // setting the  zeroes in first row and first column making it as a marker for the rest of the matrix
-                matrix[i][0]=0;
-                if(j!=0){
-                    matrix[0][j]=0;
-                }else{
-                    colo=0;
+
+        bool firstrowZero = false;
+        bool firstcolumnZero = false;
+
+        // Check if first row contains zero
+        for(int j = 0; j < n; j++) {
+            if(matrix[0][j] == 0) {
+                firstrowZero = true;
+            }
+        }
+
+        // Check if first column contains zero
+        for(int i = 0; i < m; i++) {
+            if(matrix[i][0] == 0) {
+                firstcolumnZero = true;
+            }
+        }
+
+        // Use first row and first column as markers
+        for(int i = 1; i < m; i++) {
+            for(int j = 1; j < n; j++) {
+
+                if(matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
                 }
+            }
+        }
+
+        // Set zeroes using markers
+        for(int i = m - 1; i >= 1; i--) {
+            for(int j = n - 1; j >= 1; j--) {
+
+                if(matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        if(firstrowZero) {
+            for(int j = 0; j < n; j++) {
+                matrix[0][j] = 0;
+            }
+        }
+
+        if(firstcolumnZero) {
+            for(int i = 0; i < m; i++) {
+                matrix[i][0] = 0;
             }
         }
     }
 
-
-    
-
-
-
-}
 
 
 
@@ -106,7 +139,7 @@ int main(){
         }
     }
 
-    setZeroesbetter(matrix);
+    setzeroesoptimal(matrix);
 
     cout << "Result:\n";
 
