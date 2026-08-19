@@ -42,6 +42,25 @@ int subarraySumBetter( vector<int>& nums, int k){ //TC O(n^2) SC O(1)
     return cnt;
 }
 
+int subarraySumOptimal(vector<int>& nums, int k){
+    int n = nums.size();
+    int cnt =0;
+    unordered_map<int,int> mp; // to store the prefix sum and its frequency
+    int prefixsum =0;
+    
+    mp[0] = 1; // to handle the case when the prefix sum is equal to k
+
+    for(int i=0;i<n;i++){
+        prefixsum += nums[i];
+        if(mp.find(prefixsum - k) != mp.end()){ // check if the prefix sum - k is present in the map
+            cnt += mp[prefixsum - k]; // add the frequency of the prefix sum - k to the count
+        }
+        mp[prefixsum]++; // increment the frequency of the current prefix sum
+    }
+    return cnt;
+
+}
+
 int main(){
     int n;
     cout<< "Enter the number of elements in the array: ";
@@ -54,7 +73,7 @@ int main(){
     int k;
     cout<< "Enter the target sum: ";
     cin>>k;
-    int result = subarraySumBetter(nums, k);
+    int result = subarraySumOptimal(nums, k);
     cout<< "Number of subarrays with sum equal to " << k << ": " << result << endl;
     return 0;
 }
