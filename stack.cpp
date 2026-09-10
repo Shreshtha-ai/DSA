@@ -2,10 +2,10 @@
 using namespace std;
 
 class Stack{
-    int stack[5];
+    int arr[5];
     int top;
 
-    public:
+public:
     Stack() {
         top = -1;
 
@@ -13,7 +13,7 @@ class Stack{
     void push(int x){
         if(top<4){
             top++;
-        stack[top]=x;
+        arr[top]=x;
         }
         else{
             cout<< "stack is overflowing";
@@ -27,7 +27,7 @@ class Stack{
             cout<< "Stack is empty";
             return -1 ;
         }
-        int x = stack[top];
+        int x = arr[top];
         top --;
         return x;
     }
@@ -38,7 +38,7 @@ class Stack{
             return -1;
 
         }
-        return stack[top];
+        return arr[top];
     }
 
 };
