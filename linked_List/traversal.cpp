@@ -32,12 +32,15 @@ Node* convertArr2LL(vector<int> &arr){
 }
 
 int main(){
+    int cnt = 0;
     vector<int> arr = {2,4,5,6,712};
     Node* head = convertArr2LL(arr);
     Node* temp = head; 
     while(temp){
         cout<< temp->data<<" ";
         temp = temp->next;
+        cnt++;
     }
-    cout<< head->data;
+    cout<< head->data<<endl;
+    cout<< "number of elements in the linked list are: "<< cnt;
 }
