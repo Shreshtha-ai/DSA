@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-struct Node{
+class Node{ // if we use struct instead of class then we dont get oop concepts like encapsulation and data hiding
     public:
     int data;
     Node* next;
