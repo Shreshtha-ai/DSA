@@ -34,7 +34,8 @@ int main() {
     }
     cout << "\n";
 
-    // Call bubble sort
+    // Call insertion sort
+    //not good for large data
     sort(arr, n);
 
     return 0;
