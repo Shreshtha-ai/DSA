@@ -98,7 +98,7 @@ void sort012Optimal(Node* head){ //TC = O(N) ONLY ONE TRAVERSAL  //SC = O(1) (OP
 }
 
 int main(){
-    vector<int> arr = {0,1,2,0,1,2};
+    vector<int> arr = {0,0,0,2,2};
     Node* head = convertArr2LL(arr);
     // sort012(head);
     sort012Optimal(head);
