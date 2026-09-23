@@ -51,10 +51,26 @@ void display(Node* head){
     cout<<temp->data; // this prints last node because condition in while loop stops before last node 
 }
 
+Node* insertHead(Node* head, int val){
+    Node* newNode = new Node(val);
+    Node* temp = head;
+    if(head ==NULL){
+        return newNode;
+    }
+    
+    while(temp->next!=head){
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->next = head;
+    return newNode;
+}
+
 
 int main(){
     vector<int> arr = {1,5,6,2,3,6,9};
     Node* head = convertarr2CLL(arr);
+    head = insertHead(head,20);
     display(head);
     Node* temp = searchCll(head,9);
     if(temp!=NULL){
