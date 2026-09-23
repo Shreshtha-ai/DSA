@@ -78,6 +78,40 @@ Node* insertTail(Node* head, int val){
     newNode->next = head;
     return head;
 }
+Node* insertAfterValue(Node* head, int val, int target) {
+    if (head == NULL)
+        return head;
+
+    Node* temp = head;
+
+    do {
+        if (temp->data == target) {
+            Node* newNode = new Node(val);
+
+            newNode->next = temp->next;
+            temp->next = newNode;
+
+            return head;
+        }
+
+        temp = temp->next;
+
+    } while (temp != head);
+
+    return head;  // target not found
+}
+
+Node* deleteHead(Node* head){
+    if(head ==NULL) return NULL;
+    Node* temp = head;
+    while(temp->next!=head){
+        temp = temp->next;
+    }
+    temp->next = head->next;
+    head->next = nullptr;
+    delete head;
+    return temp->next;
+}
 
 
 int main(){
@@ -85,6 +119,8 @@ int main(){
     Node* head = convertarr2CLL(arr);
     head = insertHead(head,20);
     head = insertTail(head,30);
+    head = insertAfterValue(head,25,6);
+    head = deleteHead(head);
     display(head);
     Node* temp = searchCll(head,9);
     if(temp!=NULL){
