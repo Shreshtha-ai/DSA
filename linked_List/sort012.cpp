@@ -58,10 +58,50 @@ void sort012(Node* head){ //TC = O(2N) BECAUSE TWO TIMES TRAVERSAL  //SC=O(1) (B
     }
 }
 
+
+void sort012Optimal(Node* head){ //TC = O(N) ONLY ONE TRAVERSAL  //SC = O(1) (OPTIMAL APPROACH)
+    if(head ==NULL || head->next ==NULL) return;
+
+    Node* zeroHead = new Node(-1);
+    Node* zero = zeroHead;
+    Node* oneHead = new Node(-1);
+    Node* one = oneHead;
+    Node* twoHead = new Node(-1);
+    Node* two = twoHead;
+
+    Node* temp = head;
+    while(temp!=NULL){
+        if(temp->data ==0){
+            zero->next = temp;
+            zero = zero->next;
+        }
+        else if(temp->data ==1){
+            one-> next = temp;
+            one = one->next;
+        }
+        else{
+            two-> next = temp;
+            two = two->next;
+        }
+        temp = temp->next;
+        
+    }
+    zero->next = (oneHead->next)!=nullptr?oneHead->next:twoHead->next;
+    one->next = twoHead->next;
+    two->next = NULL;
+    head = zeroHead->next;
+
+    delete zeroHead;
+    delete oneHead;
+    delete twoHead;
+    
+}
+
 int main(){
     vector<int> arr = {0,1,2,0,1,2};
     Node* head = convertArr2LL(arr);
-    sort012(head);
+    // sort012(head);
+    sort012Optimal(head);
     Node* temp = head;
     while(temp!=NULL){
         cout<<temp->data<< " ";
