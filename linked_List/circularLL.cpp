@@ -112,6 +112,18 @@ Node* deleteHead(Node* head){
     delete head;
     return temp->next;
 }
+Node* deleteTail(Node* head){
+    if(head == NULL) return NULL;
+    Node* temp = head;
+    while(temp->next->next!=head){
+        temp = temp->next;
+    }
+    Node* tail = temp->next;
+    temp->next = head;
+    tail->next = nullptr;
+    delete tail;
+    return head;
+}
 
 
 int main(){
@@ -121,6 +133,7 @@ int main(){
     head = insertTail(head,30);
     head = insertAfterValue(head,25,6);
     head = deleteHead(head);
+    head = deleteTail(head);
     display(head);
     Node* temp = searchCll(head,9);
     if(temp!=NULL){
