@@ -65,12 +65,26 @@ Node* insertHead(Node* head, int val){
     newNode->next = head;
     return newNode;
 }
+Node* insertTail(Node* head, int val){
+    Node* newNode = new Node(val);
+    Node* temp = head;
+    if(head==NULL){
+        return newNode;
+    }
+    while(temp->next!=head){
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->next = head;
+    return head;
+}
 
 
 int main(){
     vector<int> arr = {1,5,6,2,3,6,9};
     Node* head = convertarr2CLL(arr);
     head = insertHead(head,20);
+    head = insertTail(head,30);
     display(head);
     Node* temp = searchCll(head,9);
     if(temp!=NULL){
