@@ -27,7 +27,6 @@ int main(){
     for(int i = 0; i < 6; i++){
         cin >> arr[i];
     }
-    for
     sort(arr, 6);
     cout << "After counting sort: " << "\n";
     for(int i = 0; i < 6; i++){
