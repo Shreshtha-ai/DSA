@@ -12,7 +12,7 @@ class Circularqueue{
     void push(int x){
         if((end+1)%12==start){
             cout<<"Queue is overflowing"<<endl;
-            return;
+            return; v
         }
         if(start ==-1){
             start=0;
