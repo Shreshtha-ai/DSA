@@ -21,7 +21,7 @@ class Node{
 };
 
 pair<Node*, Node*> splitinTwo(Node* head){
-    Node* slow = head;
+    Node* slow = head; //as when fast will reach end slow will reach midway because fast is twice faster then slow pointer 
     Node* fast = head;
 
     if(head==NULL || head->next ==NULL) return head;
