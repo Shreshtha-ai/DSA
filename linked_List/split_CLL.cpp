@@ -30,9 +30,12 @@ pair<Node*, Node*> splitinTwo(Node* head){
         fast = fast->next->next;
         slow = slow->next;
     }
+    if(fast->next->next == head)
+        fast = fast->next;  
+
     Node* head2 = slow->next;
     slow->next = head;
-    fast->next = head2;
+    fast->next = head2; //this is wrong for even number of nodes , n must be odd , else it will not work 
 
     return {head2, head};
 }
