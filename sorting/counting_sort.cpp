@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void sort(int arr[], int n){
+void sort(int arr[], int n,int k){
     int count[n] = {0};
     for(int i = 0; i<n; i++){
         count[arr[i]]++;
@@ -27,6 +27,9 @@ int main(){
     for(int i = 0; i < 6; i++){
         cin >> arr[i];
     }
+    int k;
+    cin >> k;
+    
     sort(arr, 6);
     cout << "After counting sort: " << "\n";
     for(int i = 0; i < 6; i++){
