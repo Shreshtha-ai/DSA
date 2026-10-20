@@ -12,7 +12,7 @@ struct Node{
         right = NULL;
     }
 };
-vector<vector<int>> prePostInorder(Node* root){
+vector<vector<int>> prePostInorder(Node* root){ //TC = O(3N), SC=O(4N)
     stack<pair<Node*, int>> st;
     vector<int> pre, in, post;
     st.push({root,1});
