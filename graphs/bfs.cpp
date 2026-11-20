@@ -30,10 +30,52 @@ void bfs(int V, vector<int> adj[], int start){
 
         }
 
-            
-
-        
 
 
 
+cout << "\nVertex\tDistance\tParent\n";
+
+    for (int i = 0; i < V; i++)
+    {
+        cout << i << "\t" << distance[i] << "\t\t";
+
+        if (parent[i] == -1)
+            cout << "NIL";
+        else
+            cout << parent[i];
+
+        cout << endl;
+    }
+}
+
+int main()
+{
+    int V, E;
+
+    cout << "Enter number of vertices: ";
+    cin >> V;
+
+    cout << "Enter number of edges: ";
+    cin >> E;
+
+    vector<int> adj[V];
+
+    cout << "Enter edges (u v):\n";
+
+    for (int i = 0; i < E; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+
+        adj[u].push_back(v);
+        adj[v].push_back(u);  // Undirected graph
+    }
+
+    int s;
+    cout << "Enter source vertex: ";
+    cin >> s;
+
+    bfs(V, adj, s);
+
+    return 0;
 }
