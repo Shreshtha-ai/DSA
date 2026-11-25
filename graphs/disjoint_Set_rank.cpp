@@ -23,7 +23,7 @@ class DisjointSet {
         return parent[node] = findUPar(parent[node]);
     }
 
-    void unionByRank(int u, int v){
+    void unionByRank(int u, int v){ // TC = O(4*alpha) ~ O(1) alpha = inverse Ackermann function
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
         if(ulp_u == ulp_v) return;
@@ -42,7 +42,7 @@ class DisjointSet {
     }
 
     // union by size
-    void unionBySize(int u, int v){
+    void unionBySize(int u, int v){ // TC = O(4*alpha) ~ O(1) alpha = inverse Ackermann function
         int ulp_u = findUPar(u);
         int ulp_v = findUPar(v);
         if(ulp_u == ulp_v) return;
